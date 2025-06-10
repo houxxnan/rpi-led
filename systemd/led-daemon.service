@@ -1,0 +1,8 @@
+[Unit]
+Description=LED 守护程序服务
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/led-daemon
+Restart=always
+User=root

@@ -1,0 +1,10 @@
+[Unit]
+Description=每5分钟运行LED守护程序一次（实际上守护进程会自己sleep）
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
