@@ -15,10 +15,8 @@
 
 ---
 
-## 三、项目结构
-<!-- 使用代码块包含外部文件 -->
-```text
-{{% include "docs/tree.txt" %}}
+## 项目结构
+[查看完整结构](tree.txt)
 ##  安装说明
 
 ### 1. 克隆仓库
@@ -27,7 +25,7 @@
 git clone https://github.com/houxxnan/rpi-led.git
 cd rpi-led
 
-2. 运行安装脚本
+### 2. 运行安装脚本
 
 sudo bash install.sh
 
@@ -36,14 +34,14 @@ sudo bash install.sh
 选择定时方式（systemd 或 cron）
 
 
-3. 查看运行状态（若选择 systemd）
+### 3. 查看运行状态（若选择 systemd）
 
 sudo systemctl status led-daemon.timer
 
 
 ---
 
-❌ 卸载程序
+#❌ 卸载程序
 
 要完全卸载 LED 定时守护程序：
 
@@ -52,7 +50,7 @@ sudo bash uninstall.sh
 
 ---
 
-⚙️ 编译说明（可选手动执行）
+#⚙️ 编译说明（可选手动执行）
 
 你也可以手动编译守护进程：
 
@@ -65,7 +63,7 @@ gcc -Wall -DON_START=22 -DON_END=8 led-daemon.c -o led-daemon
 
 ---
 
- 依赖环境
+ #依赖环境
 
 Linux（推荐 Raspberry Pi OS）
 
@@ -79,7 +77,7 @@ systemd 或 cron
 
 ---
 
- 测试方式
+ # 测试方式
 
 安装完成后，观察 LED 是否在设定时间段内关闭/开启
 
