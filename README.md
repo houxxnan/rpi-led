@@ -21,7 +21,7 @@
 
 ### 1. 克隆仓库
 
-```bash
+bash
 git clone https://github.com/houxxnan/rpi-led.git
 cd rpi-led
 
