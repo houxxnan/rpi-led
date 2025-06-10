@@ -17,7 +17,7 @@
 
 ##  项目结构
 
-###rpi-led/
+rpi-led/
 ├── config.h           # Auto-generated time configuration header file
 ├── install.sh         # Installation script (includes time period and scheduling options)
 ├── uninstall.sh       # Uninstallation script
