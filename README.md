@@ -15,22 +15,10 @@
 
 ---
 
-##  项目结构
-
-rpi-led/
-├── config.h           # Auto-generated time configuration header file
-├── install.sh         # Installation script (includes time period and scheduling options)
-├── uninstall.sh       # Uninstallation script
-├── Makefile           # Build, install, move executable and systemd setup
-├── led-daemon.c       # Daemon source code (controls LED behavior)
-├── ledctl.c           # Control program source (optional CLI controller)
-├── systemd/           # systemd configuration directory
-│   ├── led-daemon.service
-│   └── led-daemon.timer
-├── .gitignore         # Git ignore configuration
-└── LICENSE            # MIT License
----
-
+## 三、项目结构
+<!-- 使用代码块包含外部文件 -->
+```text
+{{% include "docs/tree.txt" %}}
 ##  安装说明
 
 ### 1. 克隆仓库
