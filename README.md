@@ -17,8 +17,18 @@
 
 ##  项目结构
 
-rpi-led/ ├── config.h               # 自动生成的时间配置头文件 ├── install.sh             # 安装脚本，含时间段设置和定时类型选择 ├── uninstall.sh           # 卸载脚本 ├── Makefile               # 编译、安装、移动可执行文件及 systemd 配置 ├── led-daemon.c           # 守护进程源码（控制 LED 行为） ├── ledctl.c               # 控制程序源码（可选 CLI 控制器） ├── systemd/               # systemd 配置文件目录 │   ├── led-daemon.service │   └── led-daemon.timer ├── .gitignore             # Git 忽略配置 └── LICENSE                # 采用 MIT 协议
-
+rpi-led/
+├── config.h           # Auto-generated time configuration header file
+├── install.sh         # Installation script (includes time period and scheduling options)
+├── uninstall.sh       # Uninstallation script
+├── Makefile           # Build, install, move executable and systemd setup
+├── led-daemon.c       # Daemon source code (controls LED behavior)
+├── ledctl.c           # Control program source (optional CLI controller)
+├── systemd/           # systemd configuration directory
+│   ├── led-daemon.service
+│   └── led-daemon.timer
+├── .gitignore         # Git ignore configuration
+└── LICENSE            # MIT License
 ---
 
 ##  安装说明
