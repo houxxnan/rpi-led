@@ -25,8 +25,10 @@ bash
 git clone https://github.com/houxxnan/rpi-led.git
 cd rpi-led
 ````
+
 ### 2. 运行安装脚本
-````
+
+```
 sudo bash install.sh
 ```
 输入关闭开始时间（小时）和结束时间（小时）
@@ -46,7 +48,6 @@ sudo systemctl status led-daemon.timer
 要完全卸载 LED 定时守护程序：
 ```
 sudo bash uninstall.sh
-
 ```
 ---
 
@@ -58,7 +59,7 @@ make
 ```
 或使用：
 ```
-gcc -Wall -DON_START=22 -DON_END=8 led-daemon.c -o led-daemon
+gcc -Wall -DON_START=[开启时间] -DON_END=[结束时间] led-daemon.c -o led-daemon
 
 ```
 ---
