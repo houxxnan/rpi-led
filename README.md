@@ -41,7 +41,7 @@ sudo systemctl status led-daemon.timer
 
 ---
 
-#❌ 卸载程序
+# ❌ 卸载程序
 
 要完全卸载 LED 定时守护程序：
 
@@ -50,7 +50,7 @@ sudo bash uninstall.sh
 
 ---
 
-#⚙️ 编译说明（可选手动执行）
+# ⚙️ 编译说明（可选手动执行）
 
 你也可以手动编译守护进程：
 
@@ -63,7 +63,7 @@ gcc -Wall -DON_START=22 -DON_END=8 led-daemon.c -o led-daemon
 
 ---
 
- #依赖环境
+ # 依赖环境
 
 Linux（推荐 Raspberry Pi OS）
 
