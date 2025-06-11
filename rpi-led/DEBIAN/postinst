@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+
+SERVICE_NAME=led-daemon.service
+SERVICE_PATH=/lib/systemd/system/$SERVICE_NAME
+
+echo "[postinst] Running post-installation script..."
+
+# 等待最多 3 秒，直到 systemd unit 文件存在
+for i in {1..6}; do
+    if [ -f "$SERVICE_PATH" ]; then
+        break
+    fi
+    echo "[postinst] Waiting for $SERVICE_PATH..."
+    sleep 0.5
+done
+
+systemctl daemon-reload || true
+
+if [ -f "$SERVICE_PATH" ]; then
+    echo "[postinst] Enabling $SERVICE_NAME..."
+    systemctl enable "$SERVICE_NAME" || true
+
+    echo "[postinst] Starting $SERVICE_NAME..."
+    systemctl restart "$SERVICE_NAME" || true
+else
+    echo "[postinst] Warning: $SERVICE_NAME still not found after wait."
+fi
+
+exit 0

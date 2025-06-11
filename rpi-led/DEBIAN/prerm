@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Stopping and disabling led-daemon service before removal..."
+
+# 停止服务（忽略失败）
+systemctl stop led-daemon.service 2>/dev/null || true
+systemctl disable led-daemon.service 2>/dev/null || true
+exit 0

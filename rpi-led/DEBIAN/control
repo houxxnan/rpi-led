@@ -1,0 +1,8 @@
+Package: rpi-led
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: armhf
+Maintainer: houxnan <houxnan@outlook.com>
+Description: LED scheduler for Raspberry Pi
+ A daemon to control GPIO LED on/off on schedule via systemd or cron.

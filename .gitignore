@@ -6,7 +6,7 @@ led-daemon
 *~
 *.swp
 *.swo
-
+config.h
 # 忽略 object 文件和依赖文件
 *.o
 *.d

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Removing led-daemon service files..."
+
+if [ "$1" = "purge" ]; then
+    echo "[postrm] Purging service file..."
+    rm -f /lib/systemd/system/led-daemon.service
+    systemctl daemon-reload || true
+fi
+
+exit 0
