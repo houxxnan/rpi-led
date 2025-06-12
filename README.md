@@ -1,45 +1,66 @@
-
 # rpi-led
 
-一个用于树莓派的 LED 定时控制守护程序，支持 `systemd` 和 `cron` 两种定时方式。用户可通过交互式安装脚本，自定义 LED 的关闭时间段，实现夜间关闭、白天开启的节能效果。
+一个用于 **树莓派** 的 LED 定时控制守护程序，支持 `systemd`、`init.d` 和 `rc.local` 三种启动方式。通过交互式安装脚本，用户可自定义 LED 的关闭时间段，实现夜间自动关闭、白天自动开启的节能效果。
 
 ---
 
 ## ✨ 功能特性
 
-- ⏰ 定时控制 LED 开关
--  支持 systemd timer 与 cron job
-- ‍ 安装过程可交互，自动生成配置文件
-- ⚙️ 完整 Makefile 构建、安装、部署流程
--  提供卸载脚本，干净移除所有安装项
+- ⏰ **定时控制** LED 开关（按小时段）
+- ⚙️ 支持 **systemd timer**、**init.d** 和 **rc.local**
+-  **交互式安装**，自动生成配置文件
+-  提供完整 `Makefile` 构建与部署流程
+-  提供卸载脚本，**干净移除** 所有文件与服务
 
 ---
 
-## 项目结构
-[查看完整结构](doc/tree.txt)
-##  安装说明
+##  项目结构
+
+[点击查看完整目录结构](doc/tree.txt)
+
+---
+
+## ️ 安装说明
 
 ### 1. 克隆仓库
-```
-bash
+
+```bash
 git clone https://github.com/houxxnan/rpi-led.git
 cd rpi-led
-````
+###2. 设置执行权限（bash/zsh 用户都适用）
 
-### 2. 运行安装脚本
+chmod +x install.sh uninstall.sh
+
+### 3. 运行安装脚本
 
 ```
+# 使用 bash
 sudo bash install.sh
+
+# 或者使用 zsh（如你用的是 zsh）
+sudo zsh install.sh
 ```
 输入关闭开始时间（小时）和结束时间（小时）
 
-选择定时方式（systemd 或 cron）
+启动方式（systemd / init.d / rc.local）
+
+### 4. 查看运行状态
+
+如果选择了 systemd：
+```
+sudo systemctl status led-daemon.service
+```
+如果选择了 init.d：
+```
+sudo service led-daemon status
+```
+如果使用了 rc.local，可查看 /etc/rc.local 内容：
+```
+cat /etc/rc.local
+```
 
 
-### 3. 查看运行状态（若选择 systemd）
-```
-sudo systemctl status led-daemon.timer
-```
+---
 
 ---
 
@@ -48,6 +69,7 @@ sudo systemctl status led-daemon.timer
 要完全卸载 LED 定时守护程序：
 ```
 sudo bash uninstall.sh
+
 ```
 ---
 
@@ -66,25 +88,39 @@ gcc -Wall -DON_START=[开启时间] -DON_END=[结束时间] led-daemon.c -o led-
 
  # 依赖环境
 
-Linux（推荐 Raspberry Pi OS）
+Linux 系统（推荐 Raspberry Pi OS）
 
 make 和 gcc
 
-systemd 或 cron
+支持以下三种启动方式之一：
 
-可控制的 GPIO 接口用于 LED
+systemd
 
+init.d
+
+rc.local
+
+
+可控制 GPIO 接口的 LED 设备
 
 
 ---
 
- # 测试方式
+# 测试方法
 
-安装完成后，观察 LED 是否在设定时间段内关闭/开启
+安装后等待对应时间段，观察 LED 状态是否变化
 
-可通过 systemctl status 或 journalctl -u led-daemon.service 查看日志
+查看日志：
 
-手动执行 ledctl（若启用）进行 LED 状态检测
+systemctl status led-daemon.service
+
+journalctl -u led-daemon.service
+
+
+手动执行：
+
+/usr/local/bin/ledctl
+
 
 
 
