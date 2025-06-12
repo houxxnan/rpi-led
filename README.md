@@ -112,11 +112,12 @@ systemctl status led-daemon.service
 journalctl -u led-daemon.service
 
 
-手动执行：
+手动控制 LED：
 
-/usr/local/bin/ledctl
+
+sudo ledctl on    # 打开 LED
+sudo ledctl off   # 关闭 LED
 ```
-
 
 
 ---
