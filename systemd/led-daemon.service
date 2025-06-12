@@ -6,3 +6,6 @@ Type=simple
 ExecStart=/usr/local/bin/led-daemon
 Restart=always
 User=root
+
+[Install]
+WantedBy=multi-user.target
