@@ -121,7 +121,7 @@ journalctl -u led-daemon.service
 
 ---
 
-# 开源协议
+## 开源协议
 
 本项目使用 MIT License 开源，您可自由使用、修改、分发，需保留原作者信息。
 
