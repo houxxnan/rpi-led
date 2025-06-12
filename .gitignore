@@ -20,3 +20,5 @@ Thumbs.db
 
 # 忽略编译目录（如果你有build文件夹）
 build/
+# 忽略Release
+Release/
