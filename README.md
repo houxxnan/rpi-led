@@ -24,21 +24,21 @@
 
 ### 1. 克隆仓库
 
-```bash
+```
 git clone https://github.com/houxxnan/rpi-led.git
 cd rpi-led
+```
 ###2. 设置执行权限（bash/zsh 用户都适用）
-
-chmod +x install.sh uninstall.sh
-
-### 3. 运行安装脚本
 
 ```
 # 使用 bash
-sudo bash install.sh
+sudo bash install.shchmod +x install.sh uninstall.sh ```
+```
 
-# 或者使用 zsh（如你用的是 zsh）
-sudo zsh install.sh
+### 3. 运行安装脚本
+```
+# 使用 bash
+sudo bash install.sh
 ```
 输入关闭开始时间（小时）和结束时间（小时）
 
@@ -58,13 +58,9 @@ sudo service led-daemon status
 ```
 cat /etc/rc.local
 ```
-
-
 ---
 
----
-
-# ❌ 卸载程序
+## ❌ 卸载程序
 
 要完全卸载 LED 定时守护程序：
 ```
@@ -73,20 +69,19 @@ sudo bash uninstall.sh
 ```
 ---
 
-# ⚙️ 编译说明（可选手动执行）
+## ⚙️ 编译说明（可选手动执行）
 
 你也可以手动编译守护进程：
 ```
 make
-```
+
 或使用：
-```
 gcc -Wall -DON_START=[开启时间] -DON_END=[结束时间] led-daemon.c -o led-daemon
 
 ```
 ---
 
- # 依赖环境
+## 依赖环境
 
 Linux 系统（推荐 Raspberry Pi OS）
 
@@ -106,12 +101,12 @@ rc.local
 
 ---
 
-# 测试方法
+## 测试方法
 
 安装后等待对应时间段，观察 LED 状态是否变化
 
 查看日志：
-
+```
 systemctl status led-daemon.service
 
 journalctl -u led-daemon.service
@@ -120,13 +115,13 @@ journalctl -u led-daemon.service
 手动执行：
 
 /usr/local/bin/ledctl
-
+```
 
 
 
 ---
 
- 开源协议
+# 开源协议
 
 本项目使用 MIT License 开源，您可自由使用、修改、分发，需保留原作者信息。
 
